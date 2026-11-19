@@ -15,10 +15,8 @@ mi primer puesto como Full Stack Developer o en roles afines de IT.
 
 ## Habilidades
 - Frontend: HTML, CSS, JavaScript, Angular.
-- Backend: Java.
-- Datos: MySQL.
+- Backend y datos: Java, C, MySQL.
 - Herramientas: Git y GitHub, Vercel, Railway, Claude Code.
-- Fundamentos: C.
 
 ## Próximos objetivos
 TypeScript, testing automatizado con Playwright, Spring Boot, Docker y AWS.
@@ -39,22 +37,24 @@ TypeScript, testing automatizado con Playwright, Spring Boot, Docker y AWS.
 - Lo más difícil: entender las necesidades del cliente en un rubro que no conocía y
   trabajar el contenido en inglés, cuidando el SEO y el AEO.
 - Sitio: https://associates-realty.net/
-- Repositorio: pendiente (indicar si es público o privado).
+- Repositorio: no público. En el portfolio se muestra solo el enlace al sitio.
 - Estado: terminado en agosto de 2026.
 
 ### We Insure Downtown Miami
 - Una línea: sitio de una agencia de seguros independiente de Brickell, Miami.
 - Problema: la agencia necesitaba que un visitante pudiera pedir una cotización en pocos
   pasos, en su idioma y sin llamar por teléfono.
-- Mi rol: a confirmar. Borrador: desarrollo web, APIs REST y puesta en producción.
+- Mi rol: Desarrollador. Reconstruí el sitio desde cero para reemplazar la página anterior,
+  armada con el editor visual de un CRM.
 - Funcionalidades: cotización en tres pasos por tipo de cobertura; páginas por cobertura;
   sitio en inglés, español e italiano; blog; preguntas frecuentes; enlace al portal de
   clientes.
 - Stack: JavaScript, frontend en Vercel, backend y servicios en Railway, APIs REST.
   Framework a confirmar (parece Next.js).
-- Lo más difícil: pendiente.
+- Lo más difícil: migrar una página hecha en un editor visual tipo Canva a un sitio
+  desarrollado completamente desde cero, sin perder contenido ni funciones.
 - Sitio: https://weinsure-miami.com/
-- Repositorio: pendiente (indicar si es público o privado).
+- Repositorio: no público. En el portfolio se muestra solo el enlace al sitio.
 - Estado: terminado en agosto de 2026.
 
 ## Contacto

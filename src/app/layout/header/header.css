@@ -1,0 +1,121 @@
+/*
+ * Header en una tarjeta chica (.card .card--sm, de components.css).
+ * Menú a la izquierda y acciones (idioma y tema) a la derecha, en la misma fila.
+ * El nombre no va acá: ya es el h1 del hero, justo debajo.
+ */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.5rem 0.75rem 0.5rem 1.25rem;
+}
+
+/* flex: 1 1 0 + min-width: 0 → el menú usa el espacio que dejan las acciones y, si no
+   le alcanza (móvil), sus enlaces bajan a otra línea en lugar de empujar las acciones. */
+.header__nav {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.header__nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.25rem;
+  padding: 0;
+  list-style: none;
+}
+
+/* Cada enlace mide al menos 44 px de alto para que sea fácil de tocar. */
+.header__nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-size);
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+  font-weight: var(--fw-medium);
+  text-decoration: none;
+}
+
+.header__nav a:hover {
+  text-decoration: underline;
+}
+
+/* flex: none → las acciones nunca se achican ni se parten. */
+.header__actions {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Botón de idioma: misma forma que el botón de tema. */
+.header__lang {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--tap-size);
+  min-height: var(--tap-size);
+  padding-inline: 0.75rem;
+  border-radius: 12px;
+  background-color: var(--surface-2);
+  color: var(--text);
+  font-size: 0.9375rem;
+  font-weight: var(--fw-bold);
+  text-decoration: none;
+}
+
+/* Móvil: menos espacio entre enlaces y menos relleno para que entren más por línea. */
+@media (max-width: 47.99rem) {
+  .header {
+    padding-inline-start: 1rem;
+  }
+
+  .header__nav ul {
+    column-gap: 1rem;
+  }
+}
+
+/* ---------- Botón de tema ---------- */
+
+/* Oculto por defecto: sin JavaScript no puede funcionar, así que no se muestra. */
+.theme-toggle {
+  display: none;
+}
+
+/* :host-context busca hacia arriba en el documento: si <html> tiene data-theme,
+   el script del <head> corrió y JavaScript está activo. */
+:host-context([data-theme]) .theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--tap-size);
+  height: var(--tap-size);
+  padding: 0;
+  border: 0;
+  border-radius: 12px;
+  background-color: var(--surface-2);
+  color: var(--text);
+  cursor: pointer;
+}
+
+/* Sin light-dark() el modo oscuro no tiene efecto: mejor no ofrecer el botón. */
+@supports not (color: light-dark(#000, #fff)) {
+  :host-context([data-theme]) .theme-toggle {
+    display: none;
+  }
+}
+
+.icon {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Un solo ícono a la vez, según el tema que marcó el script. */
+:host-context([data-theme='dark']) .icon--moon,
+:host-context([data-theme='light']) .icon--sun {
+  display: none;
+}

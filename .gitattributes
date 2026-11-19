@@ -1,0 +1,16 @@
+# Le dice a Git cómo tratar cada tipo de archivo.
+
+# Archivos de texto: Git decide solo si un archivo es texto (text=auto) y, si lo es,
+# lo guarda y lo deja en tu carpeta siempre con saltos de línea LF (los de Linux y Mac).
+# Esto pisa la configuración core.autocrlf de cada computadora, así todos los que
+# clonen el repo (Windows, Mac, Linux, Vercel, GitHub Actions) ven los mismos archivos.
+* text=auto eol=lf
+
+# "binary": nunca convertir saltos de línea ni mostrar diffs de texto.
+*.pdf   binary
+*.jpg   binary
+*.jpeg  binary
+*.png   binary
+*.webp  binary
+*.ico   binary
+*.woff2 binary

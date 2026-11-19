@@ -47,3 +47,6 @@ Thumbs.db
 .env
 .env.*
 !.env.example
+
+# Configuración local de la vista previa de Claude Code
+.claude/launch.json

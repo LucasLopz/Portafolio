@@ -1,4 +1,14 @@
-<section id="about" aria-labelledby="about-title">
+<section id="about" class="section" aria-labelledby="about-title">
   <h2 id="about-title">{{ content().title }}</h2>
-  <p>{{ content().text }}</p>
+
+  <div class="card about">
+    <p>{{ content().text }}</p>
+
+    <h3 class="label">{{ content().nextGoalsTitle }}</h3>
+    <ul class="about__goals">
+      @for (goal of content().nextGoals; track goal) {
+        <li>{{ goal }}</li>
+      }
+    </ul>
+  </div>
 </section>

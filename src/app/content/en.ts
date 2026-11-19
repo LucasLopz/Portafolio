@@ -4,13 +4,18 @@ import { SiteContent } from './content.model';
 export const EN: SiteContent = {
   header: {
     navLabel: 'Sections',
-    switchLabel: 'Español',
-    switchAriaLabel: 'View the site in Spanish',
+    switchLabel: 'ES',
+    switchAriaLabel: 'View the site in Spanish (ES)',
+    themeLabel: 'Dark mode',
   },
   hero: {
     name: 'Lucas Lopez Saaied',
     role: 'Junior Full Stack Developer',
     tagline: 'Associate Degree in Programming (UTN), looking for my first role in IT.',
+    projectsLabel: 'View projects',
+    cvLabel: 'Download CV',
+    cvFile: '/cv/cv-en.pdf',
+    photoAlt: 'Photo of Lucas Lopez Saaied',
   },
   about: {
     title: 'About me',
@@ -19,18 +24,16 @@ export const EN: SiteContent = {
       'JavaScript, Angular, HTML and CSS, using MySQL databases and version control on GitHub. ' +
       'I have already shipped real websites that are in use today. I am currently training in QA ' +
       'and looking for my first role as a Full Stack Developer or in related IT positions.',
+    nextGoalsTitle: 'Next goals',
+    nextGoals: ['TypeScript', 'Automated testing with Playwright', 'Spring Boot', 'Docker', 'AWS'],
   },
   skills: {
     title: 'Skills',
     groups: [
       { name: 'Frontend', items: ['HTML', 'CSS', 'JavaScript', 'Angular'] },
-      { name: 'Backend', items: ['Java'] },
-      { name: 'Data', items: ['MySQL'] },
+      { name: 'Backend and data', items: ['Java', 'C', 'MySQL'] },
       { name: 'Tools', items: ['Git and GitHub', 'Vercel', 'Railway', 'Claude Code'] },
-      { name: 'Fundamentals', items: ['C'] },
     ],
-    nextGoalsTitle: 'Next goals',
-    nextGoals: ['TypeScript', 'Automated testing with Playwright', 'Spring Boot', 'Docker', 'AWS'],
   },
   projects: {
     title: 'Projects',
@@ -38,8 +41,11 @@ export const EN: SiteContent = {
       problem: 'Problem',
       role: 'My role',
       features: 'Features',
-      stack: 'Stack',
       challenge: 'Biggest challenge',
+      details: 'View details',
+      gallery: 'Screenshots',
+      enlarge: 'Enlarge screenshot',
+      close: 'Close',
       visit: 'Visit site',
     },
     items: [
@@ -67,6 +73,32 @@ export const EN: SiteContent = {
           'content in English while taking care of SEO and AEO.',
         url: 'https://associates-realty.net/',
         status: 'Completed in August 2026.',
+        image: {
+          src: '/images/projects/associates-realty/hero.webp',
+          width: 1200,
+          height: 515,
+          alt: 'Screenshot of the Associates Realty home page',
+        },
+        gallery: [
+          {
+            src: '/images/projects/associates-realty/call-to-action.webp',
+            width: 1200,
+            height: 413,
+            alt: 'Call to action with a multi-step contact form.',
+          },
+          {
+            src: '/images/projects/associates-realty/chat.webp',
+            width: 1200,
+            height: 500,
+            alt: 'Four-question property review.',
+          },
+          {
+            src: '/images/projects/associates-realty/contact.webp',
+            width: 1200,
+            height: 581,
+            alt: 'Contact page with a form and direct contact channels.',
+          },
+        ],
       },
       {
         name: 'We Insure Downtown Miami',
@@ -74,6 +106,9 @@ export const EN: SiteContent = {
         problem:
           'The agency needed visitors to be able to request a quote in a few steps, in their own ' +
           'language and without calling.',
+        role:
+          'Developer. I rebuilt the site from scratch to replace the previous page, which had ' +
+          "been built with a CRM's visual editor.",
         features: [
           'Three-step quote by coverage type',
           'Coverage pages',
@@ -83,6 +118,9 @@ export const EN: SiteContent = {
           'Link to the client portal',
         ],
         stack: ['JavaScript', 'Vercel', 'Railway', 'REST APIs'],
+        challenge:
+          'Migrating a page made in a Canva-style visual editor to a site built entirely from ' +
+          'scratch, without losing any content or features.',
         url: 'https://weinsure-miami.com/',
         status: 'Completed in August 2026.',
       },

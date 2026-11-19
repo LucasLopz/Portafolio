@@ -13,8 +13,8 @@ Público: reclutadores y líderes técnicos de Argentina y del exterior. Context
 - Español e inglés con botón para cambiar de idioma. Una URL por idioma (/es y /en).
 - SEO y AEO: título y descripción por idioma, hreflang, sitemap, imagen al compartir
   y datos estructurados JSON-LD de tipo Person.
-- Modo claro y oscuro con botón. El diseño visual todavía no está definido:
-  proponer opciones antes de aplicar estilos definitivos.
+- Modo claro y oscuro con botón. Diseño visual definido en docs/diseno.md
+  (opción C, tarjetas): respetar sus colores, tipografía y medidas.
 - Foto de perfil obligatoria en la presentación.
 - Contacto solo con botones: LinkedIn, GitHub y email. Sin formulario ni WhatsApp.
 - No publicar teléfono ni dirección.
@@ -23,7 +23,7 @@ Público: reclutadores y líderes técnicos de Argentina y del exterior. Context
 - CV descargable en PDF, uno por idioma.
 
 ## Reglas
-- Leer docs/decisiones.md y docs/contenido.md antes de proponer cambios.
+- Leer docs/decisiones.md, docs/contenido.md y docs/diseno.md antes de proponer cambios.
 - No inventar textos, proyectos ni datos personales: usar solo docs/contenido.md.
   Si un dato figura como "a confirmar" o "pendiente", preguntarme antes de usarlo.
 - Antes de programar, mostrar un plan corto y esperar mi aprobación.

@@ -1,0 +1,5 @@
+/* Footer discreto, fuera de tarjeta: cierra la página sin competir con el contenido. */
+.footer {
+  padding: 1rem 0.25rem 0;
+  font-size: var(--fs-small);
+}

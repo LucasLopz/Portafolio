@@ -1,0 +1,177 @@
+/* El host (<app-project-card>) ocupa su celda de la grilla para que las tarjetas
+   de una misma fila tengan el mismo alto. */
+:host {
+  display: flex;
+}
+
+.project {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  /* Como en la maqueta: menos relleno arriba y a los costados para que la captura luzca. */
+  padding: 1rem 1rem 1.5rem;
+}
+
+/* Captura o placeholder: misma proporción (12:5, cercana a la de las capturas). */
+.project__media {
+  width: 100%;
+  aspect-ratio: 12 / 5;
+  border-radius: var(--radius-sm);
+  background-color: var(--surface-2);
+  object-fit: cover;
+  /* Si hay que recortar, se conserva la parte de arriba (menú y título del sitio). */
+  object-position: top;
+}
+
+.project__media--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  color: var(--text-muted);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-medium);
+  text-align: center;
+}
+
+.project__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.625rem;
+  padding-inline: 0.5rem;
+}
+
+.project__meta {
+  font-size: var(--fs-small);
+}
+
+/* ---------- Ver detalles ---------- */
+.project__details {
+  width: 100%;
+}
+
+.project__details summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: var(--tap-size);
+  color: var(--text);
+  font-weight: var(--fw-bold);
+  cursor: pointer;
+  /* Saca el triángulo nativo; se reemplaza por el de abajo, que gira al abrir. */
+  list-style: none;
+}
+
+.project__details summary::-webkit-details-marker {
+  display: none;
+}
+
+.project__details summary::before {
+  content: '';
+  width: 0.5em;
+  height: 0.5em;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(-45deg);
+}
+
+.project__details[open] summary::before {
+  transform: rotate(45deg);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .project__details summary::before {
+    transition: transform 0.15s ease;
+  }
+}
+
+.project__details-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  padding-block: 0.25rem 0.5rem;
+}
+
+.project__details-body h4:not(:first-child) {
+  margin-block-start: 0.625rem;
+}
+
+.project__details-body ul {
+  padding-inline-start: 1.25rem;
+  color: var(--text-muted);
+}
+
+/* ---------- Ver sitio ---------- */
+.project__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  min-height: var(--tap-size);
+  /* Empuja el enlace al fondo de la tarjeta: los dos "Ver sitio" quedan alineados. */
+  margin-block-start: auto;
+  font-weight: var(--fw-bold);
+  text-decoration: none;
+}
+
+.project__link:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Capturas ampliables ---------- */
+
+/* Botón que envuelve una captura: sin estilo propio de botón, solo la imagen. */
+.zoom {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: none;
+  overflow: hidden;
+  cursor: zoom-in;
+}
+
+/* Leve agrandado al pasar el mouse, solo si no se pidió reducir el movimiento. */
+@media (prefers-reduced-motion: no-preference) {
+  .zoom img {
+    transition: transform 0.2s ease;
+  }
+
+  .zoom:hover img {
+    transform: scale(1.03);
+  }
+}
+
+/* Miniaturas: 2 o 3 por fila según el ancho; todas con la misma proporción. */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(7rem, 100%), 1fr));
+  gap: 0.75rem;
+  margin-block-start: 0.25rem;
+  padding: 0;
+  list-style: none;
+}
+
+.gallery figure {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  margin: 0;
+}
+
+.gallery img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: var(--surface-2);
+  object-fit: cover;
+  object-position: top;
+}
+
+.gallery figcaption {
+  color: var(--text-muted);
+  font-size: var(--fs-small);
+  line-height: 1.4;
+}

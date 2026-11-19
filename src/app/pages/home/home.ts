@@ -13,6 +13,7 @@ import { Skills } from '../../sections/skills/skills';
   selector: 'app-home',
   imports: [Header, Hero, About, Skills, Projects, Contact, Footer],
   templateUrl: './home.html',
+  styleUrl: './home.css',
 })
 export class Home {
   /** Llega desde "data" de la ruta (/es o /en) gracias a withComponentInputBinding. */

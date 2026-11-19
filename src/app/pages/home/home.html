@@ -1,12 +1,16 @@
-<!-- Home arma la página: recibe el idioma de la ruta y le pasa a cada parte solo sus textos. -->
-<app-header [lang]="lang()" [content]="content()" />
+<!-- Home arma la página: recibe el idioma de la ruta y le pasa a cada parte solo sus textos.
+     Orden según docs/diseno.md: los proyectos van inmediatamente después del hero.
+     .container centra todo con un ancho máximo de 1120 px. -->
+<div class="page container">
+  <app-header [lang]="lang()" [content]="content()" />
 
-<main>
-  <app-hero [content]="content().hero" />
-  <app-about [content]="content().about" />
-  <app-skills [content]="content().skills" />
-  <app-projects [content]="content().projects" />
-  <app-contact [content]="content().contact" />
-</main>
+  <main>
+    <app-hero [content]="content().hero" />
+    <app-projects [content]="content().projects" />
+    <app-skills [content]="content().skills" />
+    <app-about [content]="content().about" />
+    <app-contact [content]="content().contact" />
+  </main>
 
-<app-footer [name]="content().hero.name" />
+  <app-footer [name]="content().hero.name" />
+</div>

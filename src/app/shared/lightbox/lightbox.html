@@ -1,0 +1,27 @@
+<!-- aria-label: el lector de pantalla anuncia de qué trata el diálogo al abrirse. -->
+<dialog
+  #dialog
+  class="lightbox"
+  [attr.aria-label]="image()?.alt"
+  (click)="onDialogClick($event)"
+  (close)="onClosed()"
+>
+  <!-- El botón está siempre dentro del diálogo (no depende de la imagen): así ya existe
+       cuando se llama a showModal() y el navegador le pasa el foco (autofocus). -->
+  <div class="lightbox__content">
+    <button type="button" class="lightbox__close" autofocus (click)="close()">
+      <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18">
+        <path d="M6 6l12 12M18 6L6 18" />
+      </svg>
+      {{ closeLabel() }}
+    </button>
+
+    @if (image(); as img) {
+      <figure class="lightbox__figure">
+        <img [src]="img.src" [width]="img.width" [height]="img.height" [alt]="img.alt" />
+        <!-- aria-hidden: el mismo texto ya es el alt de la imagen; así no se lee dos veces. -->
+        <figcaption aria-hidden="true">{{ img.alt }}</figcaption>
+      </figure>
+    }
+  </div>
+</dialog>

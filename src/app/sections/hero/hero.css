@@ -1,0 +1,53 @@
+/*
+ * Hero: tarjeta de presentación y foto en su propia tarjeta, lado a lado.
+ * flex-wrap + flex-basis: si no hay lugar para las dos (móvil), la foto baja.
+ */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  /* Si la foto queda sola en su fila, aparece centrada. */
+  justify-content: center;
+  gap: var(--gap);
+}
+
+.hero__intro {
+  /* Se queda con casi todo el espacio libre (999 contra 1 de la foto) y no baja de
+     460 px: si no entra, la foto baja a la fila siguiente. */
+  flex: 999 1 28.75rem;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: var(--pad-hero);
+}
+
+.hero__tagline {
+  max-width: 36em;
+  font-size: var(--fs-body);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-block-start: 0.25rem;
+}
+
+.hero__photo {
+  /* 320 px de ancho en escritorio (como en la maqueta); en móvil ocupa todo el ancho. */
+  flex: 1 1 20rem;
+  /* Tope de 384 px: en tablet, cuando la foto queda sola en su fila, no se agranda de más
+     (el archivo mide 406 px de ancho; estirarlo más lo vería borroso). */
+  max-width: 24rem;
+  min-width: 0;
+  /* Proporción vertical. En escritorio, align-items: stretch (valor por defecto de flex)
+     la estira al alto de la tarjeta de presentación. */
+  aspect-ratio: 4 / 5;
+  height: auto;
+  border-radius: var(--radius-lg);
+  /* cover: llena la tarjeta recortando lo que sobra; el encuadre prioriza la cara. */
+  object-fit: cover;
+  object-position: center 20%;
+  background-color: var(--surface-2);
+}

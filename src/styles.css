@@ -1,1 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+/*
+ * Punto de entrada de los estilos globales (configurado en angular.json).
+ * Solo importa los demás archivos, en este orden: cada uno usa lo que define el anterior.
+ */
+@import './styles/tokens.css';
+@import './styles/fonts.css';
+@import './styles/base.css';
+@import './styles/components.css';

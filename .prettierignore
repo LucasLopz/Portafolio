@@ -1,0 +1,11 @@
+# Archivos que Prettier no revisa ni formatea.
+
+# Generados: se crean solos al compilar o instalar, no se editan a mano.
+dist
+.angular
+node_modules
+package-lock.json
+
+# Documentación en Markdown: la escribe Lucas a mano. Prettier alinearía las tablas
+# agregando espacios, y cada fila nueva obligaría a reformatear toda la tabla.
+*.md
