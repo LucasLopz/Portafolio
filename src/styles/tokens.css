@@ -76,9 +76,25 @@
   }
 }
 
-/* Sin light-dark() el sitio queda en claro: que scroll y controles nativos también lo estén. */
+/*
+ * ---------- Tema elegido ----------
+ * El script del <head> (index.html) pone data-theme="light" o "dark" en <html>.
+ * Fijar color-scheme hace que light-dark() elija ese lado, sin importar el sistema.
+ */
+:root[data-theme='light'] {
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+}
+
+/* Sin light-dark() el sitio queda en claro: que scroll y controles nativos también lo estén,
+   aunque data-theme diga "dark". :root[data-theme] tiene la misma especificidad que las
+   reglas de arriba y viene después, así que gana. */
 @supports not (color: light-dark(#000, #fff)) {
-  :root {
+  :root,
+  :root[data-theme] {
     color-scheme: light;
   }
 }

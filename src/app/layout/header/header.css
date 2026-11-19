@@ -1,0 +1,45 @@
+/* El resto del header se estiliza en el commit "header y hero". */
+
+/* ---------- Botón de tema ---------- */
+
+/* Oculto por defecto: sin JavaScript no puede funcionar, así que no se muestra. */
+.theme-toggle {
+  display: none;
+}
+
+/* :host-context busca hacia arriba en el documento: si <html> tiene data-theme,
+   el script del <head> corrió y JavaScript está activo. */
+:host-context([data-theme]) .theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--tap-size);
+  height: var(--tap-size);
+  padding: 0;
+  border: 0;
+  border-radius: 12px;
+  background-color: var(--surface-2);
+  color: var(--text);
+  cursor: pointer;
+}
+
+/* Sin light-dark() el modo oscuro no tiene efecto: mejor no ofrecer el botón. */
+@supports not (color: light-dark(#000, #fff)) {
+  :host-context([data-theme]) .theme-toggle {
+    display: none;
+  }
+}
+
+.icon {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Un solo ícono a la vez, según el tema que marcó el script. */
+:host-context([data-theme='dark']) .icon--moon,
+:host-context([data-theme='light']) .icon--sun {
+  display: none;
+}

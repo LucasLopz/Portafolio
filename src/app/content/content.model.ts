@@ -10,6 +10,8 @@ export interface SiteContent {
     switchLabel: string;
     /** Nombre accesible del enlace; incluye el texto visible (EN/ES). */
     switchAriaLabel: string;
+    /** Nombre del botón de tema. Es fijo: aria-pressed indica si el modo oscuro está activo. */
+    themeLabel: string;
   };
   hero: {
     name: string;

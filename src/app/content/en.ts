@@ -6,6 +6,7 @@ export const EN: SiteContent = {
     navLabel: 'Sections',
     switchLabel: 'ES',
     switchAriaLabel: 'View the site in Spanish (ES)',
+    themeLabel: 'Dark mode',
   },
   hero: {
     name: 'Lucas Lopez Saaied',

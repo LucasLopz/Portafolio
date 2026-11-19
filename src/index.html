@@ -2,6 +2,27 @@
 <html lang="es">
   <head>
     <meta charset="utf-8" />
+    <!--
+      Tema sin parpadeo. Este script corre antes de que el navegador dibuje la página:
+      decide el tema y lo marca en <html data-theme="...">, y el CSS ya pinta con esos colores.
+      Va escrito acá (y no en Angular) porque Angular arranca después y se vería el tema
+      equivocado por un instante. La clave "theme" tiene que coincidir con THEME_STORAGE_KEY
+      en src/app/core/theme.service.ts.
+    -->
+    <script>
+      (function () {
+        var theme;
+        try {
+          // Elección guardada por el usuario (puede fallar si el navegador bloquea el almacenamiento).
+          theme = localStorage.getItem('theme');
+        } catch (e) {}
+        if (theme !== 'light' && theme !== 'dark') {
+          // Primera visita: respeta la preferencia del sistema.
+          theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
     <title>Portfolio</title>
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
