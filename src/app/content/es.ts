@@ -25,7 +25,13 @@ export const ES: SiteContent = {
       'Ya publiqué sitios reales que hoy están en uso. Actualmente me estoy formando en QA y busco ' +
       'mi primer puesto como Full Stack Developer o en roles afines de IT.',
     nextGoalsTitle: 'Próximos objetivos',
-    nextGoals: ['TypeScript', 'Testing automatizado con Playwright', 'Spring Boot', 'Docker', 'AWS'],
+    nextGoals: [
+      'TypeScript',
+      'Testing automatizado con Playwright',
+      'Spring Boot',
+      'Docker',
+      'AWS',
+    ],
   },
   skills: {
     title: 'Habilidades',
