@@ -3,6 +3,14 @@
  * Si a un idioma le falta un campo, el proyecto no compila.
  */
 export interface SiteContent {
+  header: {
+    /** Nombre del menú para lectores de pantalla. */
+    navLabel: string;
+    /** Texto visible del enlace al otro idioma. */
+    switchLabel: string;
+    /** Descripción completa del enlace para lectores de pantalla. */
+    switchAriaLabel: string;
+  };
   hero: {
     name: string;
     role: string;
@@ -20,6 +28,7 @@ export interface SiteContent {
   };
   projects: {
     title: string;
+    labels: ProjectLabels;
     items: Project[];
   };
   contact: {
@@ -32,6 +41,16 @@ export interface SiteContent {
 export interface SkillGroup {
   name: string;
   items: string[];
+}
+
+/** Títulos de cada parte de la tarjeta de proyecto. */
+export interface ProjectLabels {
+  problem: string;
+  role: string;
+  features: string;
+  stack: string;
+  challenge: string;
+  visit: string;
 }
 
 export interface Project {

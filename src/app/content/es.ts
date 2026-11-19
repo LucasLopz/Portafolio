@@ -2,6 +2,11 @@ import { SiteContent } from './content.model';
 
 /** Textos en español. Fuente: docs/contenido.md. */
 export const ES: SiteContent = {
+  header: {
+    navLabel: 'Secciones',
+    switchLabel: 'English',
+    switchAriaLabel: 'Ver el sitio en inglés',
+  },
   hero: {
     name: 'Lucas Lopez Saaied',
     role: 'Full Stack Developer Jr.',
@@ -29,6 +34,14 @@ export const ES: SiteContent = {
   },
   projects: {
     title: 'Proyectos',
+    labels: {
+      problem: 'Problema',
+      role: 'Mi rol',
+      features: 'Funcionalidades',
+      stack: 'Stack',
+      challenge: 'Lo más difícil',
+      visit: 'Ver sitio',
+    },
     items: [
       {
         name: 'Associates Realty',

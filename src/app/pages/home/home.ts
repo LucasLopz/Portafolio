@@ -1,9 +1,17 @@
 import { Component, DOCUMENT, computed, effect, inject, input } from '@angular/core';
 import { CONTENT } from '../../content';
 import { Lang } from '../../core/language';
+import { Footer } from '../../layout/footer/footer';
+import { Header } from '../../layout/header/header';
+import { About } from '../../sections/about/about';
+import { Contact } from '../../sections/contact/contact';
+import { Hero } from '../../sections/hero/hero';
+import { Projects } from '../../sections/projects/projects';
+import { Skills } from '../../sections/skills/skills';
 
 @Component({
   selector: 'app-home',
+  imports: [Header, Hero, About, Skills, Projects, Contact, Footer],
   templateUrl: './home.html',
 })
 export class Home {
