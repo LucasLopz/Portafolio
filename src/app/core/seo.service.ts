@@ -3,6 +3,7 @@ import { Meta, Title } from '@angular/platform-browser';
 import { CONTENT } from '../content';
 import { Lang } from './language';
 import { absoluteUrl } from './site';
+import { buildProfilePage } from './structured-data';
 
 /** Medidas de las imágenes para compartir (public/images/og-*.jpg). */
 const OG_IMAGE = { width: '1200', height: '630', type: 'image/jpeg' };
@@ -63,6 +64,24 @@ export class SeoService {
       { rel: 'alternate', hreflang: 'en', href: absoluteUrl('/en') },
       { rel: 'alternate', hreflang: 'x-default', href: absoluteUrl('/es') },
     ]);
+
+    // ---------- Datos estructurados (JSON-LD) ----------
+    this.setJsonLd(buildProfilePage(lang));
+  }
+
+  /**
+   * <script type="application/ld+json">: el formato que recomienda Google para datos
+   * estructurados. El navegador no lo ejecuta; solo lo leen buscadores y asistentes.
+   */
+  private setJsonLd(data: object): void {
+    const head = this.document.head;
+    head.querySelector('script[type="application/ld+json"][data-seo]')?.remove();
+    const script = this.document.createElement('script');
+    script.setAttribute('type', 'application/ld+json');
+    script.setAttribute('data-seo', '');
+    // "<" se escribe como <: así ningún texto puede cerrar el <script> antes de tiempo.
+    script.textContent = JSON.stringify(data).replace(/</g, '\\u003c');
+    head.appendChild(script);
   }
 
   /** <meta name="..." content="...">: crea la etiqueta o actualiza la que ya existe. */
