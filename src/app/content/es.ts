@@ -2,6 +2,15 @@ import { SiteContent } from './content.model';
 
 /** Textos en español. Fuente: docs/contenido.md. */
 export const ES: SiteContent = {
+  seo: {
+    title: 'Lucas Lopez Saaied | Full Stack Developer Jr.',
+    description:
+      'Técnico en Programación (UTN) en Mar del Plata. Desarrollo aplicaciones web con Java, ' +
+      'JavaScript, Angular y MySQL, con sitios publicados y en uso.',
+    ogLocale: 'es_AR',
+    ogImage: '/images/og-es.jpg',
+    ogImageAlt: 'Lucas Lopez Saaied, Full Stack Developer Jr.',
+  },
   header: {
     navLabel: 'Secciones',
     switchLabel: 'EN',

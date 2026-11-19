@@ -3,6 +3,16 @@
  * Si a un idioma le falta un campo, el proyecto no compila.
  */
 export interface SiteContent {
+  /** Lo que ven buscadores y redes al compartir el enlace (va en el <head>). */
+  seo: {
+    title: string;
+    description: string;
+    /** Código de idioma para Open Graph: es_AR, en_US. */
+    ogLocale: string;
+    /** Imagen al compartir (1200 x 630), dentro de public/. */
+    ogImage: string;
+    ogImageAlt: string;
+  };
   header: {
     /** Nombre del menú para lectores de pantalla. */
     navLabel: string;
