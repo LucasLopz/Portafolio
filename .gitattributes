@@ -1,0 +1,9 @@
+# Le dice a Git cómo tratar cada tipo de archivo.
+# "binary": nunca convertir saltos de línea ni mostrar diffs de texto.
+*.pdf   binary
+*.jpg   binary
+*.jpeg  binary
+*.png   binary
+*.webp  binary
+*.ico   binary
+*.woff2 binary
