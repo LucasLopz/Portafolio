@@ -74,6 +74,9 @@ export const ES: SiteContent = {
         problem:
           'La agencia necesitaba que un visitante pudiera pedir una cotización en pocos pasos, en ' +
           'su idioma y sin llamar por teléfono.',
+        role:
+          'Desarrollador. Reconstruí el sitio desde cero para reemplazar la página anterior, ' +
+          'armada con el editor visual de un CRM.',
         features: [
           'Cotización en tres pasos por tipo de cobertura',
           'Páginas por cobertura',
@@ -83,6 +86,9 @@ export const ES: SiteContent = {
           'Enlace al portal de clientes',
         ],
         stack: ['JavaScript', 'Vercel', 'Railway', 'APIs REST'],
+        challenge:
+          'Migrar una página hecha en un editor visual tipo Canva a un sitio desarrollado ' +
+          'completamente desde cero, sin perder contenido ni funciones.',
         url: 'https://weinsure-miami.com/',
         status: 'Terminado en agosto de 2026.',
       },

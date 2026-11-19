@@ -74,6 +74,9 @@ export const EN: SiteContent = {
         problem:
           'The agency needed visitors to be able to request a quote in a few steps, in their own ' +
           'language and without calling.',
+        role:
+          'Developer. I rebuilt the site from scratch to replace the previous page, which had ' +
+          "been built with a CRM's visual editor.",
         features: [
           'Three-step quote by coverage type',
           'Coverage pages',
@@ -83,6 +86,9 @@ export const EN: SiteContent = {
           'Link to the client portal',
         ],
         stack: ['JavaScript', 'Vercel', 'Railway', 'REST APIs'],
+        challenge:
+          'Migrating a page made in a Canva-style visual editor to a site built entirely from ' +
+          'scratch, without losing any content or features.',
         url: 'https://weinsure-miami.com/',
         status: 'Completed in August 2026.',
       },
