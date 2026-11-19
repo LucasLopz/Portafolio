@@ -1,0 +1,21 @@
+<section id="contact" aria-labelledby="contact-title">
+  <h2 id="contact-title">{{ content().title }}</h2>
+
+  <!-- Solo botones, sin formulario (docs/decisiones.md). -->
+  <ul>
+    <li>
+      <a [href]="links.linkedin" target="_blank" rel="noopener noreferrer">
+        {{ content().linkedinLabel }}
+      </a>
+    </li>
+    <li>
+      <a [href]="links.github" target="_blank" rel="noopener noreferrer">
+        {{ content().githubLabel }}
+      </a>
+    </li>
+    <li>
+      <!-- mailto: abre el programa de correo del visitante con la dirección ya cargada. -->
+      <a [href]="'mailto:' + links.email">{{ content().emailLabel }}</a>
+    </li>
+  </ul>
+</section>

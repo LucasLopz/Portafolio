@@ -1,0 +1,13 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist/portfolio/browser",
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/((?!(?:es|en)/?$)(?!.*\\.[^/]+$).*)",
+      "destination": "/es",
+      "permanent": false
+    }
+  ]
+}

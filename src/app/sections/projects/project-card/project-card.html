@@ -1,0 +1,36 @@
+<!-- article: contenido que se entiende solo, aunque se saque de la página. -->
+<article>
+  <h3>{{ project().name }}</h3>
+  <p>{{ project().summary }}</p>
+
+  <h4>{{ labels().problem }}</h4>
+  <p>{{ project().problem }}</p>
+
+  <!-- Solo se muestra si el dato está confirmado (campo opcional en el modelo). -->
+  @if (project().role; as role) {
+    <h4>{{ labels().role }}</h4>
+    <p>{{ role }}</p>
+  }
+
+  <h4>{{ labels().features }}</h4>
+  <ul>
+    @for (feature of project().features; track feature) {
+      <li>{{ feature }}</li>
+    }
+  </ul>
+
+  <h4>{{ labels().stack }}</h4>
+  <p>{{ project().stack.join(', ') }}</p>
+
+  @if (project().challenge; as challenge) {
+    <h4>{{ labels().challenge }}</h4>
+    <p>{{ challenge }}</p>
+  }
+
+  <p>{{ project().status }}</p>
+
+  <!-- noopener noreferrer: la pestaña nueva no puede controlar esta página. -->
+  <a [href]="project().url" target="_blank" rel="noopener noreferrer">
+    {{ labels().visit }}: {{ project().name }}
+  </a>
+</article>

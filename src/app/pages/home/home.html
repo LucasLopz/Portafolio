@@ -1,0 +1,12 @@
+<!-- Home arma la página: recibe el idioma de la ruta y le pasa a cada parte solo sus textos. -->
+<app-header [lang]="lang()" [content]="content()" />
+
+<main>
+  <app-hero [content]="content().hero" />
+  <app-about [content]="content().about" />
+  <app-skills [content]="content().skills" />
+  <app-projects [content]="content().projects" />
+  <app-contact [content]="content().contact" />
+</main>
+
+<app-footer [name]="content().hero.name" />
