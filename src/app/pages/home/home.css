@@ -1,0 +1,11 @@
+/* La página es una columna de bloques separados por 20 px (--gap). */
+.page,
+main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+.page {
+  padding-block: 1.5rem 3.5rem;
+}

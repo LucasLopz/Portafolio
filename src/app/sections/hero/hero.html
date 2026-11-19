@@ -1,15 +1,32 @@
-<section aria-labelledby="hero-title">
-  <!-- La foto se suma en el commit de estilos del hero. -->
-  <p>{{ content().role }}</p>
-  <h1 id="hero-title">{{ content().name }}</h1>
-  <p>{{ content().tagline }}</p>
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero__intro card">
+    <p class="pill">{{ content().role }}</p>
+    <h1 id="hero-title">{{ content().name }}</h1>
+    <p class="hero__tagline">{{ content().tagline }}</p>
 
-  <div>
-    <!-- Mismo mecanismo que el menú: /es#projects baja a la sección de proyectos. -->
-    <a [routerLink]="[]" fragment="projects">{{ content().projectsLabel }}</a>
+    <div class="hero__actions">
+      <!-- Mismo mecanismo que el menú: /es#projects baja a la sección de proyectos. -->
+      <a class="btn btn--primary" [routerLink]="[]" fragment="projects">
+        {{ content().projectsLabel }}
+      </a>
 
-    <!-- download: el navegador descarga el archivo en lugar de navegar a él.
-         type: avisa de antemano que es un PDF. -->
-    <a [href]="content().cvFile" type="application/pdf" download>{{ content().cvLabel }}</a>
+      <!-- download: el navegador descarga el archivo en lugar de navegar a él.
+           type: avisa de antemano que es un PDF. -->
+      <a class="btn btn--secondary" [href]="content().cvFile" type="application/pdf" download>
+        {{ content().cvLabel }}
+      </a>
+    </div>
   </div>
+
+  <!-- width y height reservan el espacio antes de que cargue la imagen: la página no salta.
+       fetchpriority="high": es lo primero que se ve, el navegador la pide antes que otras. -->
+  <img
+    class="hero__photo"
+    [src]="photo.src"
+    [width]="photo.width"
+    [height]="photo.height"
+    [alt]="content().photoAlt"
+    fetchpriority="high"
+    decoding="async"
+  />
 </section>

@@ -23,6 +23,8 @@ export interface SiteContent {
     cvLabel: string;
     /** Ruta del PDF de este idioma, dentro de public/. */
     cvFile: string;
+    /** Texto alternativo de la foto de perfil. */
+    photoAlt: string;
   };
   about: {
     title: string;

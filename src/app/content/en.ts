@@ -15,6 +15,7 @@ export const EN: SiteContent = {
     projectsLabel: 'View projects',
     cvLabel: 'Download CV',
     cvFile: '/cv/cv-en.pdf',
+    photoAlt: 'Photo of Lucas Lopez Saaied',
   },
   about: {
     title: 'About me',
