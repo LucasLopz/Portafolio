@@ -1,0 +1,28 @@
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.about p {
+  /* Líneas de unas 70 letras como máximo: más largas cansan al leer. */
+  max-width: 70ch;
+}
+
+/* Próximos objetivos como etiquetas que se acomodan en varias líneas. */
+.about__goals {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.about__goals li {
+  padding: 0.375rem 0.875rem;
+  border-radius: 999px;
+  background-color: var(--surface-2);
+  color: var(--text);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-medium);
+}

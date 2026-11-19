@@ -5,6 +5,7 @@ import { LINKS } from '../../content/links';
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.html',
+  styleUrl: './contact.css',
 })
 export class Contact {
   readonly content = input.required<SiteContent['contact']>();

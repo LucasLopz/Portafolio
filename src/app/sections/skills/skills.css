@@ -1,0 +1,14 @@
+/* Tarjetas chicas: 220 px de ancho mínimo (la grilla general usa 300 px). */
+.skills {
+  --min: 13.75rem;
+}
+
+.skill {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.skill dd {
+  color: var(--text);
+}

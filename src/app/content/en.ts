@@ -70,6 +70,12 @@ export const EN: SiteContent = {
           'content in English while taking care of SEO and AEO.',
         url: 'https://associates-realty.net/',
         status: 'Completed in August 2026.',
+        image: {
+          src: '/images/projects/associates-realty/hero.webp',
+          width: 1200,
+          height: 515,
+          alt: 'Screenshot of the Associates Realty home page',
+        },
       },
       {
         name: 'We Insure Downtown Miami',

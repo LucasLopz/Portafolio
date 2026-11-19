@@ -72,3 +72,20 @@
   font-size: var(--fs-small);
   font-weight: var(--fw-bold);
 }
+
+/* ---------- Sección: título (h2) arriba y tarjetas debajo ----------
+   El relleno superior separa cada sección de la anterior más que el espacio entre tarjetas. */
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-block-start: 1.5rem;
+}
+
+/* Grilla de tarjetas que se acomoda sola: tantas columnas como entren con el ancho mínimo
+   indicado en --min (por defecto 300 px); en móvil, una sola. */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(var(--min, 18.75rem), 100%), 1fr));
+  gap: var(--gap);
+}

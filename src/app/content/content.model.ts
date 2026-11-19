@@ -77,4 +77,14 @@ export interface Project {
   challenge?: string;
   url: string;
   status: string;
+  /** Captura principal. Opcional: sin captura, la tarjeta muestra un placeholder. */
+  image?: ProjectImage;
+}
+
+export interface ProjectImage {
+  src: string;
+  /** Medidas reales del archivo: el navegador reserva el lugar y la página no salta. */
+  width: number;
+  height: number;
+  alt: string;
 }

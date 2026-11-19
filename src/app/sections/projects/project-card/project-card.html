@@ -1,40 +1,62 @@
 <!-- article: contenido que se entiende solo, aunque se saque de la página. -->
-<article>
-  <!-- La captura (o el placeholder) se suma en el commit de estilos de proyectos. -->
-  <h3>{{ project().name }}</h3>
-  <p>{{ project().summary }}</p>
-  <p>{{ project().stack.join(' · ') }}</p>
-  <p>{{ project().status }}</p>
+<article class="project card">
+  <!-- Captura principal o, si todavía no hay, un placeholder con el nombre del proyecto.
+       El placeholder es decorativo (aria-hidden): el nombre ya está en el h3. -->
+  @if (project().image; as image) {
+    <img
+      class="project__media"
+      [src]="image.src"
+      [width]="image.width"
+      [height]="image.height"
+      [alt]="image.alt"
+      loading="lazy"
+      decoding="async"
+    />
+  } @else {
+    <div class="project__media project__media--placeholder" aria-hidden="true">
+      {{ project().name }}
+    </div>
+  }
 
-  <!-- details/summary: desplegable nativo del navegador. Funciona con teclado y lector de
-       pantalla sin JavaScript, y el contenido sigue en el HTML para los buscadores. -->
-  <details>
-    <summary>{{ labels().details }}</summary>
+  <div class="project__body">
+    <h3>{{ project().name }}</h3>
+    <p>{{ project().summary }}</p>
+    <p class="project__meta">{{ project().stack.join(' · ') }}</p>
+    <p class="project__meta">{{ project().status }}</p>
 
-    <h4>{{ labels().problem }}</h4>
-    <p>{{ project().problem }}</p>
+    <!-- details/summary: desplegable nativo del navegador. Funciona con teclado y lector de
+         pantalla sin JavaScript, y el contenido sigue en el HTML para los buscadores. -->
+    <details class="project__details">
+      <summary>{{ labels().details }}</summary>
 
-    <!-- Solo se muestra si el dato está confirmado (campo opcional en el modelo). -->
-    @if (project().role; as role) {
-      <h4>{{ labels().role }}</h4>
-      <p>{{ role }}</p>
-    }
+      <div class="project__details-body">
+        <h4>{{ labels().problem }}</h4>
+        <p>{{ project().problem }}</p>
 
-    <h4>{{ labels().features }}</h4>
-    <ul>
-      @for (feature of project().features; track feature) {
-        <li>{{ feature }}</li>
-      }
-    </ul>
+        <!-- Solo se muestra si el dato está confirmado (campo opcional en el modelo). -->
+        @if (project().role; as role) {
+          <h4>{{ labels().role }}</h4>
+          <p>{{ role }}</p>
+        }
 
-    @if (project().challenge; as challenge) {
-      <h4>{{ labels().challenge }}</h4>
-      <p>{{ challenge }}</p>
-    }
-  </details>
+        <h4>{{ labels().features }}</h4>
+        <ul>
+          @for (feature of project().features; track feature) {
+            <li>{{ feature }}</li>
+          }
+        </ul>
 
-  <!-- noopener noreferrer: la pestaña nueva no puede controlar esta página. -->
-  <a [href]="project().url" target="_blank" rel="noopener noreferrer">
-    {{ labels().visit }}: {{ project().name }}
-  </a>
+        @if (project().challenge; as challenge) {
+          <h4>{{ labels().challenge }}</h4>
+          <p>{{ challenge }}</p>
+        }
+      </div>
+    </details>
+
+    <!-- noopener noreferrer: la pestaña nueva no puede controlar esta página.
+         La flecha es decorativa: aria-hidden evita que el lector la lea. -->
+    <a class="project__link" [href]="project().url" target="_blank" rel="noopener noreferrer">
+      {{ labels().visit }}: {{ project().name }} <span aria-hidden="true">→</span>
+    </a>
+  </div>
 </article>
