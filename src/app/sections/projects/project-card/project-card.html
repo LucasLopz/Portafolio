@@ -3,15 +3,25 @@
   <!-- Captura principal o, si todavía no hay, un placeholder con el nombre del proyecto.
        El placeholder es decorativo (aria-hidden): el nombre ya está en el h3. -->
   @if (project().image; as image) {
-    <img
-      class="project__media"
-      [src]="image.src"
-      [width]="image.width"
-      [height]="image.height"
-      [alt]="image.alt"
-      loading="lazy"
-      decoding="async"
-    />
+    <!-- La captura es un botón: al tocarla se abre en grande (lightbox).
+         aria-haspopup="dialog": avisa que abre un diálogo. -->
+    <button
+      type="button"
+      class="zoom"
+      aria-haspopup="dialog"
+      [attr.aria-label]="labels().enlarge + ': ' + image.alt"
+      (click)="lightbox.open(image)"
+    >
+      <img
+        class="project__media"
+        [src]="image.src"
+        [width]="image.width"
+        [height]="image.height"
+        [alt]="image.alt"
+        loading="lazy"
+        decoding="async"
+      />
+    </button>
   } @else {
     <div class="project__media project__media--placeholder" aria-hidden="true">
       {{ project().name }}
@@ -50,6 +60,38 @@
           <h4>{{ labels().challenge }}</h4>
           <p>{{ challenge }}</p>
         }
+
+        <!-- Miniaturas: cada una es un botón que abre la captura en grande,
+             con una línea debajo que dice qué muestra. -->
+        @if (project().gallery; as gallery) {
+          <h4>{{ labels().gallery }}</h4>
+          <ul class="gallery">
+            @for (shot of gallery; track shot.src) {
+              <li>
+                <figure>
+                  <button
+                    type="button"
+                    class="zoom"
+                    aria-haspopup="dialog"
+                    [attr.aria-label]="labels().enlarge + ': ' + shot.alt"
+                    (click)="lightbox.open(shot)"
+                  >
+                    <!-- alt vacío: el botón ya tiene nombre y el texto está debajo. -->
+                    <img
+                      [src]="shot.src"
+                      [width]="shot.width"
+                      [height]="shot.height"
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                  <figcaption>{{ shot.alt }}</figcaption>
+                </figure>
+              </li>
+            }
+          </ul>
+        }
       </div>
     </details>
 
@@ -59,4 +101,7 @@
       {{ labels().visit }}: {{ project().name }} <span aria-hidden="true">→</span>
     </a>
   </div>
+
+  <!-- Un lightbox por tarjeta; #lightbox permite llamarlo desde los botones de arriba. -->
+  <app-lightbox #lightbox [closeLabel]="labels().close" />
 </article>

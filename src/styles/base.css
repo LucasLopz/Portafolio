@@ -105,6 +105,11 @@ img {
   outline-offset: 3px;
 }
 
+/* Con un diálogo modal abierto (lightbox), la página de atrás no se desplaza. */
+html:has(dialog[open]) {
+  overflow: hidden;
+}
+
 /* ---------- Utilidad ----------
    Oculta algo a la vista pero lo deja para lectores de pantalla. */
 .visually-hidden {

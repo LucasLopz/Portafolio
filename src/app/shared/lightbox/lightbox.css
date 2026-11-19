@@ -1,0 +1,90 @@
+/* El host no ocupa lugar: así no suma un espacio vacío al final de la tarjeta. */
+:host {
+  display: contents;
+}
+
+/*
+ * El <dialog> ocupa toda la pantalla y es transparente: así cualquier clic fuera de la
+ * caja de contenido cae sobre el <dialog> y lo cierra (ver onDialogClick).
+ */
+.lightbox {
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  margin: 0;
+  padding: var(--gutter);
+  border: 0;
+  background: transparent;
+  color: var(--text);
+}
+
+/* Solo cuando está abierto: cerrado, el navegador lo oculta con display: none. */
+.lightbox[open] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Fondo oscuro detrás del diálogo; lo dibuja el navegador. */
+.lightbox::backdrop {
+  background-color: rgb(0 0 0 / 0.8);
+}
+
+.lightbox__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.75rem;
+  max-width: min(75rem, 100%);
+  max-height: 100%;
+  padding: 0.75rem;
+  border-radius: var(--radius-lg);
+  background-color: var(--surface);
+}
+
+.lightbox__close {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  min-height: var(--tap-size);
+  padding: 0 1rem;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background-color: var(--surface-2);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.9375rem;
+  font-weight: var(--fw-bold);
+  cursor: pointer;
+}
+
+.lightbox__close svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+}
+
+.lightbox__figure {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-height: 0;
+  margin: 0;
+}
+
+/* La imagen entra entera en la pantalla, sin recortarse (contain).
+   dvh: alto real de la pantalla del celular, descontando las barras del navegador. */
+.lightbox__figure img {
+  width: auto;
+  max-width: 100%;
+  max-height: calc(100dvh - 10rem);
+  border-radius: var(--radius-sm);
+  object-fit: contain;
+}
+
+.lightbox__figure figcaption {
+  color: var(--text-muted);
+  font-size: var(--fs-small);
+}

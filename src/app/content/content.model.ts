@@ -62,6 +62,12 @@ export interface ProjectLabels {
   challenge: string;
   /** Texto del desplegable que muestra problema, rol, funcionalidades y desafío. */
   details: string;
+  /** Subtítulo de las capturas dentro de "Ver detalles". */
+  gallery: string;
+  /** Comienzo del nombre accesible de cada captura ampliable ("Ampliar captura: ..."). */
+  enlarge: string;
+  /** Botón que cierra la captura ampliada. */
+  close: string;
   visit: string;
 }
 
@@ -79,6 +85,8 @@ export interface Project {
   status: string;
   /** Captura principal. Opcional: sin captura, la tarjeta muestra un placeholder. */
   image?: ProjectImage;
+  /** Capturas extra dentro de "Ver detalles". El alt de cada una es también su texto visible. */
+  gallery?: ProjectImage[];
 }
 
 export interface ProjectImage {

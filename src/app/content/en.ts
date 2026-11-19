@@ -43,6 +43,9 @@ export const EN: SiteContent = {
       features: 'Features',
       challenge: 'Biggest challenge',
       details: 'View details',
+      gallery: 'Screenshots',
+      enlarge: 'Enlarge screenshot',
+      close: 'Close',
       visit: 'Visit site',
     },
     items: [
@@ -76,6 +79,26 @@ export const EN: SiteContent = {
           height: 515,
           alt: 'Screenshot of the Associates Realty home page',
         },
+        gallery: [
+          {
+            src: '/images/projects/associates-realty/call-to-action.webp',
+            width: 1200,
+            height: 413,
+            alt: 'Call to action with a multi-step contact form.',
+          },
+          {
+            src: '/images/projects/associates-realty/chat.webp',
+            width: 1200,
+            height: 500,
+            alt: 'Four-question property review.',
+          },
+          {
+            src: '/images/projects/associates-realty/contact.webp',
+            width: 1200,
+            height: 581,
+            alt: 'Contact page with a form and direct contact channels.',
+          },
+        ],
       },
       {
         name: 'We Insure Downtown Miami',
