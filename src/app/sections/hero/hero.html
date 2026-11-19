@@ -1,7 +1,10 @@
 <section aria-labelledby="hero-title">
-  <!-- Foto de perfil: pendiente (docs/contenido.md). Se agrega cuando esté el archivo. -->
-  <!-- Botón de CV: pendiente, falta el PDF de cada idioma. -->
+  <!-- La foto se suma en el commit de estilos del hero. -->
   <h1 id="hero-title">{{ content().name }}</h1>
   <p>{{ content().role }}</p>
   <p>{{ content().tagline }}</p>
+
+  <!-- download: el navegador descarga el archivo en lugar de navegar a él.
+       type: avisa de antemano que es un PDF. -->
+  <a [href]="content().cvFile" type="application/pdf" download>{{ content().cvLabel }}</a>
 </section>

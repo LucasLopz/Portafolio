@@ -15,6 +15,10 @@ export interface SiteContent {
     name: string;
     role: string;
     tagline: string;
+    /** Texto del botón de descarga del CV. */
+    cvLabel: string;
+    /** Ruta del PDF de este idioma, dentro de public/. */
+    cvFile: string;
   };
   about: {
     title: string;

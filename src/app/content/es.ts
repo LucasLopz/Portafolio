@@ -11,6 +11,8 @@ export const ES: SiteContent = {
     name: 'Lucas Lopez Saaied',
     role: 'Full Stack Developer Jr.',
     tagline: 'Técnico en Programación (UTN), en busca de mi primer puesto en IT.',
+    cvLabel: 'Descargar CV',
+    cvFile: '/cv/cv-es.pdf',
   },
   about: {
     title: 'Sobre mí',

@@ -11,6 +11,8 @@ export const EN: SiteContent = {
     name: 'Lucas Lopez Saaied',
     role: 'Junior Full Stack Developer',
     tagline: 'Associate Degree in Programming (UTN), looking for my first role in IT.',
+    cvLabel: 'Download CV',
+    cvFile: '/cv/cv-en.pdf',
   },
   about: {
     title: 'About me',
