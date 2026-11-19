@@ -1,30 +1,21 @@
 /*
  * Header en una tarjeta chica (.card .card--sm, de components.css).
- * flex-wrap: si no entra todo en una línea, los grupos bajan a la siguiente.
+ * Menú a la izquierda y acciones (idioma y tema) a la derecha, en la misma fila.
+ * El nombre no va acá: ya es el h1 del hero, justo debajo.
  */
 .header {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 0.25rem 1.5rem;
+  gap: 1rem;
   padding: 0.5rem 0.75rem 0.5rem 1.25rem;
 }
 
-/* Nombre: lleva al inicio de la página del idioma actual. */
-.header__brand {
-  display: inline-flex;
-  align-items: center;
-  min-height: var(--tap-size);
-  color: var(--text);
-  font-size: 1.125rem;
-  font-weight: var(--fw-bold);
-  text-decoration: none;
-}
-
-/* El menú ocupa el espacio del medio y empuja las acciones a la derecha. */
+/* flex: 1 1 0 + min-width: 0 → el menú usa el espacio que dejan las acciones y, si no
+   le alcanza (móvil), sus enlaces bajan a otra línea en lugar de empujar las acciones. */
 .header__nav {
-  margin-inline-start: auto;
+  flex: 1 1 0;
+  min-width: 0;
 }
 
 .header__nav ul {
@@ -46,12 +37,13 @@
   text-decoration: none;
 }
 
-.header__nav a:hover,
-.header__brand:hover {
+.header__nav a:hover {
   text-decoration: underline;
 }
 
+/* flex: none → las acciones nunca se achican ni se parten. */
 .header__actions {
+  flex: none;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -73,18 +65,14 @@
   text-decoration: none;
 }
 
-/* Móvil: el nombre y las acciones arriba; el menú abajo, en una o más líneas.
-   Se usa order solo para lo visual; al navegar con teclado el orden sigue siendo
-   nombre → menú → acciones, que es el orden del HTML. */
+/* Móvil: menos espacio entre enlaces y menos relleno para que entren más por línea. */
 @media (max-width: 47.99rem) {
   .header {
     padding-inline-start: 1rem;
   }
 
-  .header__nav {
-    order: 1;
-    flex-basis: 100%;
-    margin-inline-start: 0;
+  .header__nav ul {
+    column-gap: 1rem;
   }
 }
 
