@@ -9,7 +9,7 @@ Cada decisión cerrada, con fecha y motivo. Agregar una fila cuando se decida al
 | 18/11/2026 | Español e inglés con botón de idioma, cuidando SEO y AEO | Definido por Lucas |
 | 18/11/2026 | Titular Full Stack; sección de QA al terminar el curso | Definido por Lucas |
 | 18/11/2026 | Dominio: subdominio gratuito de Vercel, sin gastos | Definido por Lucas |
-| 18/11/2026 | Contacto con botones a LinkedIn y email, sin formulario ni WhatsApp | Definido por Lucas |
+| 18/11/2026 | ~~Contacto con botones a LinkedIn y email, sin formulario ni WhatsApp~~ (reemplazada el 19/11/2026) | Definido por Lucas |
 | 18/11/2026 | Foto de perfil obligatoria | Definido por Lucas |
 | 18/11/2026 | Modo claro y oscuro; el diseño visual se define más adelante | Definido por Lucas |
 | 18/11/2026 | CV en PDF de una página, uno por idioma | Definido por Lucas |
@@ -17,6 +17,7 @@ Cada decisión cerrada, con fecha y motivo. Agregar una fila cuando se decida al
 | 18/11/2026 | El portfolio se desarrolla con Claude Code | Definido por Lucas |
 | 18/11/2026 | Objetivo principal: Full Stack Developer Jr.; QA como plan B | Rumbo laboral de Lucas |
 | 18/11/2026 | Deploy en Vercel | Ya lo usa y el plan gratuito alcanza |
+| 19/11/2026 | Contacto con botones a LinkedIn, GitHub y email, sin formulario ni WhatsApp; GitHub también en el footer | Definido por Lucas |
 
 ## Pendientes
 - Diseño visual: colores, tipografía y referencias.

@@ -91,6 +91,7 @@ export const EN: SiteContent = {
   contact: {
     title: 'Contact',
     linkedinLabel: 'LinkedIn',
+    githubLabel: 'GitHub',
     emailLabel: 'Email',
   },
 };

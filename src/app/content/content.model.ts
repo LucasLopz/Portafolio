@@ -34,6 +34,7 @@ export interface SiteContent {
   contact: {
     title: string;
     linkedinLabel: string;
+    githubLabel: string;
     emailLabel: string;
   };
 }
