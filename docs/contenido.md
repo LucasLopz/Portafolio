@@ -46,7 +46,7 @@ TypeScript, testing automatizado con Playwright, Spring Boot, Docker y AWS.
   pasos, en su idioma y sin llamar por teléfono.
 - Mi rol: Desarrollador. Reconstruí el sitio desde cero para reemplazar la página anterior,
   armada con el editor visual de un CRM.
-- Funcionalidades: cotización en tres pasos por tipo de cobertura; páginas por cobertura;
+- Funcionalidades: cotización guiada por pasos según el tipo de cobertura; páginas por cobertura;
   sitio en inglés, español e italiano; blog; preguntas frecuentes; enlace al portal de
   clientes.
 - Stack: JavaScript, frontend en Vercel, backend y servicios en Railway, APIs REST.
