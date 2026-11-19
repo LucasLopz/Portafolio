@@ -1,0 +1,84 @@
+/*
+ * Variables de diseño (tokens). Fuente: docs/diseno.md.
+ * Todo el sitio usa estas variables: para cambiar un color o un tamaño, se cambia acá.
+ */
+
+:root {
+  /* El sitio soporta los dos esquemas. El navegador también adapta
+     barras de scroll y controles nativos al esquema activo. */
+  color-scheme: light dark;
+
+  /* ---------- Colores: respaldo (valores del modo claro) ----------
+     Los usan los navegadores que no entienden light-dark(). */
+  --bg: #eef0f3;
+  --surface: #ffffff;
+  --surface-2: #eef0f3;
+  --text: #18181b;
+  --text-muted: #3f3f46;
+  --accent: #c2410c;
+  --accent-soft: #ffedd5;
+  --accent-soft-text: #9a3412;
+  --btn-bg: #18181b;
+  --btn-text: #ffffff;
+
+  /* ---------- Tipografía ---------- */
+  --font-sans: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-bold: 700;
+
+  /* clamp(mínimo, ideal, máximo): crece con el ancho de la pantalla sin pasarse de los límites.
+     h1: 36 px en móvil, 56 px en escritorio. Párrafos: de 17 a 19 px. */
+  --fs-h1: clamp(2.25rem, 1.5rem + 3vw, 3.5rem);
+  --fs-h2: 2rem; /* 32 px */
+  --fs-h3: 1.4375rem; /* 23 px */
+  --fs-body: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+  --fs-small: 0.875rem; /* 14 px */
+  --lh-tight: 1.04;
+  --lh-heading: 1.2;
+  --lh-body: 1.55;
+
+  /* ---------- Forma y espaciado ---------- */
+  --radius-lg: 24px; /* tarjetas grandes */
+  --radius-md: 20px; /* tarjetas chicas */
+  --radius-sm: 14px; /* botones e imágenes */
+  --gap: 1.25rem; /* 20 px entre tarjetas */
+  --pad-card: 1.5rem; /* 24 px */
+  --pad-hero: clamp(1.5rem, 4vw, 2.75rem); /* hasta 44 px; menos en móvil */
+  --gutter: 1rem; /* margen lateral en móvil */
+  --max-width: 70rem; /* 1120 px */
+  --tap-size: 44px; /* área táctil mínima */
+}
+
+/*
+ * ---------- Colores con light-dark() ----------
+ * light-dark(claro, oscuro) elige el valor según el esquema activo (color-scheme).
+ *
+ * Por qué va dentro de @supports y no simplemente debajo del respaldo:
+ * en una propiedad normal, el navegador viejo descarta la línea que no entiende y se queda
+ * con la anterior. Pero las variables (--algo) aceptan cualquier valor sin validarlo, así
+ * que la segunda declaración pisaría al respaldo también en el navegador viejo, y recién
+ * fallaría al usarla (background: var(--bg) quedaría vacío). @supports evita eso: este
+ * bloque solo existe para los navegadores que entienden light-dark().
+ */
+@supports (color: light-dark(#000, #fff)) {
+  :root {
+    --bg: light-dark(#eef0f3, #111318);
+    --surface: light-dark(#ffffff, #1c1f26);
+    --surface-2: light-dark(#eef0f3, #2a2e37);
+    --text: light-dark(#18181b, #f4f4f5);
+    --text-muted: light-dark(#3f3f46, #c4c4cc);
+    --accent: light-dark(#c2410c, #fb923c);
+    --accent-soft: light-dark(#ffedd5, #3a2416);
+    --accent-soft-text: light-dark(#9a3412, #fdba74);
+    --btn-bg: light-dark(#18181b, #f4f4f5);
+    --btn-text: light-dark(#ffffff, #18181b);
+  }
+}
+
+/* Sin light-dark() el sitio queda en claro: que scroll y controles nativos también lo estén. */
+@supports not (color: light-dark(#000, #fff)) {
+  :root {
+    color-scheme: light;
+  }
+}
