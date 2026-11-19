@@ -1,5 +1,4 @@
 import { Component, input } from '@angular/core';
-import { LINKS } from '../../content/links';
 
 @Component({
   selector: 'app-footer',
@@ -8,5 +7,4 @@ import { LINKS } from '../../content/links';
 })
 export class Footer {
   readonly name = input.required<string>();
-  protected readonly links = LINKS;
 }

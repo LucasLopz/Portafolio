@@ -1,17 +1,5 @@
 /* Footer discreto, fuera de tarjeta: cierra la página sin competir con el contenido. */
 .footer {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem 1rem;
   padding: 1rem 0.25rem 0;
   font-size: var(--fs-small);
-}
-
-.footer a {
-  display: inline-flex;
-  align-items: center;
-  min-height: var(--tap-size);
-  font-weight: var(--fw-bold);
 }
