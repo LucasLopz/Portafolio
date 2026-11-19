@@ -1,10 +1,15 @@
 <section aria-labelledby="hero-title">
   <!-- La foto se suma en el commit de estilos del hero. -->
-  <h1 id="hero-title">{{ content().name }}</h1>
   <p>{{ content().role }}</p>
+  <h1 id="hero-title">{{ content().name }}</h1>
   <p>{{ content().tagline }}</p>
 
-  <!-- download: el navegador descarga el archivo en lugar de navegar a él.
-       type: avisa de antemano que es un PDF. -->
-  <a [href]="content().cvFile" type="application/pdf" download>{{ content().cvLabel }}</a>
+  <div>
+    <!-- Mismo mecanismo que el menú: /es#projects baja a la sección de proyectos. -->
+    <a [routerLink]="[]" fragment="projects">{{ content().projectsLabel }}</a>
+
+    <!-- download: el navegador descarga el archivo en lugar de navegar a él.
+         type: avisa de antemano que es un PDF. -->
+    <a [href]="content().cvFile" type="application/pdf" download>{{ content().cvLabel }}</a>
+  </div>
 </section>

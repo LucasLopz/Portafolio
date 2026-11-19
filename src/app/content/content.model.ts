@@ -8,13 +8,15 @@ export interface SiteContent {
     navLabel: string;
     /** Texto visible del enlace al otro idioma. */
     switchLabel: string;
-    /** Descripción completa del enlace para lectores de pantalla. */
+    /** Nombre accesible del enlace; incluye el texto visible (EN/ES). */
     switchAriaLabel: string;
   };
   hero: {
     name: string;
     role: string;
     tagline: string;
+    /** Texto del botón que baja a la sección de proyectos. */
+    projectsLabel: string;
     /** Texto del botón de descarga del CV. */
     cvLabel: string;
     /** Ruta del PDF de este idioma, dentro de public/. */
@@ -23,12 +25,12 @@ export interface SiteContent {
   about: {
     title: string;
     text: string;
+    nextGoalsTitle: string;
+    nextGoals: string[];
   };
   skills: {
     title: string;
     groups: SkillGroup[];
-    nextGoalsTitle: string;
-    nextGoals: string[];
   };
   projects: {
     title: string;
@@ -53,8 +55,9 @@ export interface ProjectLabels {
   problem: string;
   role: string;
   features: string;
-  stack: string;
   challenge: string;
+  /** Texto del desplegable que muestra problema, rol, funcionalidades y desafío. */
+  details: string;
   visit: string;
 }
 

@@ -15,10 +15,8 @@ mi primer puesto como Full Stack Developer o en roles afines de IT.
 
 ## Habilidades
 - Frontend: HTML, CSS, JavaScript, Angular.
-- Backend: Java.
-- Datos: MySQL.
+- Backend y datos: Java, C, MySQL.
 - Herramientas: Git y GitHub, Vercel, Railway, Claude Code.
-- Fundamentos: C.
 
 ## Próximos objetivos
 TypeScript, testing automatizado con Playwright, Spring Boot, Docker y AWS.

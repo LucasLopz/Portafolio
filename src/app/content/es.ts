@@ -4,13 +4,14 @@ import { SiteContent } from './content.model';
 export const ES: SiteContent = {
   header: {
     navLabel: 'Secciones',
-    switchLabel: 'English',
-    switchAriaLabel: 'Ver el sitio en inglés',
+    switchLabel: 'EN',
+    switchAriaLabel: 'Ver el sitio en inglés (EN)',
   },
   hero: {
     name: 'Lucas Lopez Saaied',
     role: 'Full Stack Developer Jr.',
     tagline: 'Técnico en Programación (UTN), en busca de mi primer puesto en IT.',
+    projectsLabel: 'Ver proyectos',
     cvLabel: 'Descargar CV',
     cvFile: '/cv/cv-es.pdf',
   },
@@ -21,18 +22,16 @@ export const ES: SiteContent = {
       'JavaScript, Angular, HTML y CSS, con bases de datos MySQL y control de versiones en GitHub. ' +
       'Ya publiqué sitios reales que hoy están en uso. Actualmente me estoy formando en QA y busco ' +
       'mi primer puesto como Full Stack Developer o en roles afines de IT.',
+    nextGoalsTitle: 'Próximos objetivos',
+    nextGoals: ['TypeScript', 'Testing automatizado con Playwright', 'Spring Boot', 'Docker', 'AWS'],
   },
   skills: {
     title: 'Habilidades',
     groups: [
       { name: 'Frontend', items: ['HTML', 'CSS', 'JavaScript', 'Angular'] },
-      { name: 'Backend', items: ['Java'] },
-      { name: 'Datos', items: ['MySQL'] },
+      { name: 'Backend y datos', items: ['Java', 'C', 'MySQL'] },
       { name: 'Herramientas', items: ['Git y GitHub', 'Vercel', 'Railway', 'Claude Code'] },
-      { name: 'Fundamentos', items: ['C'] },
     ],
-    nextGoalsTitle: 'Próximos objetivos',
-    nextGoals: ['TypeScript', 'Testing automatizado con Playwright', 'Spring Boot', 'Docker', 'AWS'],
   },
   projects: {
     title: 'Proyectos',
@@ -40,8 +39,8 @@ export const ES: SiteContent = {
       problem: 'Problema',
       role: 'Mi rol',
       features: 'Funcionalidades',
-      stack: 'Stack',
       challenge: 'Lo más difícil',
+      details: 'Ver detalles',
       visit: 'Ver sitio',
     },
     items: [

@@ -1,25 +1,27 @@
 <header>
   <a [routerLink]="['/', lang()]">{{ content().hero.name }}</a>
 
-  <!-- [routerLink]="[]" + fragment arma /es#about: queda en la página actual y baja a la sección. -->
+  <!-- [routerLink]="[]" + fragment arma /es#about: queda en la página actual y baja a la sección.
+       El orden del menú sigue el orden de la página. -->
   <nav [attr.aria-label]="content().header.navLabel">
     <ul>
-      <li><a [routerLink]="[]" fragment="about">{{ content().about.title }}</a></li>
-      <li><a [routerLink]="[]" fragment="skills">{{ content().skills.title }}</a></li>
       <li><a [routerLink]="[]" fragment="projects">{{ content().projects.title }}</a></li>
+      <li><a [routerLink]="[]" fragment="skills">{{ content().skills.title }}</a></li>
+      <li><a [routerLink]="[]" fragment="about">{{ content().about.title }}</a></li>
       <li><a [routerLink]="[]" fragment="contact">{{ content().contact.title }}</a></li>
     </ul>
   </nav>
 
-  <!-- Enlace común a la otra URL: cada idioma tiene su dirección propia (mejor para SEO). -->
+  <!-- Enlace común a la otra URL: cada idioma tiene su dirección propia (mejor para SEO).
+       Se ve "EN" o "ES"; el aria-label da la descripción completa e incluye el texto visible,
+       así quien navega por voz puede decir "EN" y el lector de pantalla lee la frase entera. -->
   <a
     [routerLink]="['/', otherLang()]"
     [attr.hreflang]="otherLang()"
-    [attr.lang]="otherLang()"
     [attr.aria-label]="content().header.switchAriaLabel"
   >
     {{ content().header.switchLabel }}
   </a>
 
-  <!-- El botón de modo claro/oscuro se agrega en la rama del tema. -->
+  <!-- El botón de modo claro/oscuro se agrega en el commit del tema. -->
 </header>

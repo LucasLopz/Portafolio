@@ -1,11 +1,12 @@
-<!-- Home arma la página: recibe el idioma de la ruta y le pasa a cada parte solo sus textos. -->
+<!-- Home arma la página: recibe el idioma de la ruta y le pasa a cada parte solo sus textos.
+     Orden según docs/diseno.md: los proyectos van inmediatamente después del hero. -->
 <app-header [lang]="lang()" [content]="content()" />
 
 <main>
   <app-hero [content]="content().hero" />
-  <app-about [content]="content().about" />
-  <app-skills [content]="content().skills" />
   <app-projects [content]="content().projects" />
+  <app-skills [content]="content().skills" />
+  <app-about [content]="content().about" />
   <app-contact [content]="content().contact" />
 </main>
 

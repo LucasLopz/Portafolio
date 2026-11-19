@@ -1,18 +1,14 @@
 <section id="skills" aria-labelledby="skills-title">
   <h2 id="skills-title">{{ content().title }}</h2>
 
-  <!-- Lista de definiciones: cada grupo (dt) con sus tecnologías (dd). -->
+  <!-- Lista de definiciones: cada grupo (dt) con sus tecnologías (dd).
+       En el commit de estilos cada grupo se ve como una tarjeta chica. -->
   <dl>
     @for (group of content().groups; track group.name) {
-      <dt>{{ group.name }}</dt>
-      <dd>{{ group.items.join(', ') }}</dd>
+      <div>
+        <dt>{{ group.name }}</dt>
+        <dd>{{ group.items.join(', ') }}</dd>
+      </div>
     }
   </dl>
-
-  <h3>{{ content().nextGoalsTitle }}</h3>
-  <ul>
-    @for (goal of content().nextGoals; track goal) {
-      <li>{{ goal }}</li>
-    }
-  </ul>
 </section>
