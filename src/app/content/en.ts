@@ -4,13 +4,13 @@ import { SiteContent } from './content.model';
 export const EN: SiteContent = {
   hero: {
     name: 'Lucas Lopez Saaied',
-    role: 'Full Stack Developer Jr.',
-    tagline: 'Programming Technician (UTN), looking for my first role in IT.',
+    role: 'Junior Full Stack Developer',
+    tagline: 'Associate Degree in Programming (UTN), looking for my first role in IT.',
   },
   about: {
     title: 'About me',
     text:
-      'I hold a Programming Technician degree from UTN. I build web applications with Java, ' +
+      'I hold an Associate Degree in Programming from UTN. I build web applications with Java, ' +
       'JavaScript, Angular, HTML and CSS, using MySQL databases and version control on GitHub. ' +
       'I have already shipped real websites that are in use today. I am currently training in QA ' +
       'and looking for my first role as a Full Stack Developer or in related IT positions.',
