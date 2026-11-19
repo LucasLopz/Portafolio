@@ -56,6 +56,20 @@ export class ThemeService {
   private apply(theme: Theme): void {
     this.document.documentElement.setAttribute('data-theme', theme);
     this.theme.set(theme);
+    this.applyThemeColor(theme);
+  }
+
+  /**
+   * Color de la barra del navegador en el celular. En index.html hay un <meta name="theme-color">
+   * por tema (data-scheme="light" / "dark"). Se deja activo solo el del tema elegido:
+   * media="all" lo aplica siempre y media="not all" lo desactiva. Así no se repiten los colores
+   * acá: siguen definidos una sola vez, en index.html.
+   */
+  private applyThemeColor(theme: Theme): void {
+    const metas = this.document.querySelectorAll<HTMLMetaElement>('meta[name="theme-color"]');
+    metas.forEach((meta) => {
+      meta.setAttribute('media', meta.dataset['scheme'] === theme ? 'all' : 'not all');
+    });
   }
 
   private readSaved(): Theme | null {

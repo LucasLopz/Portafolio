@@ -32,9 +32,22 @@ Cada decisión cerrada, con fecha y motivo. Agregar una fila cuando se decida al
 | 19/11/2026 | Tarjeta de proyecto: resumen, stack y enlace visibles; el resto en "Ver detalles". Capturas ampliables con un dialog nativo, sin librerías | Tarjetas limpias sin perder contenido para reclutadores y buscadores |
 | 19/11/2026 | CV en public/cv/ (cv-es.pdf y cv-en.pdf), revisados sin teléfono ni dirección | Privacidad |
 | 19/11/2026 | Saltos de línea LF para todos los archivos de texto (.gitattributes) y formato con Prettier; la documentación en Markdown no se formatea | Mismos archivos en cualquier sistema; las tablas de docs se editan a mano |
+| 19/11/2026 | Dominio final: https://lucaslopezsaaied.vercel.app, definido una sola vez en src/app/core/site.json | Lo leen Angular y el script del sitemap; si cambia, se cambia en un lugar |
+| 19/11/2026 | Favicons propios (SVG, ICO y apple-touch-icon) y theme-color por tema, que sigue también al botón | Identidad propia al compartir y en el celular |
+| 19/11/2026 | SEO por idioma en el HTML prerenderizado: title, description, canonical, hreflang es/en/x-default (x-default → /es), Open Graph (es_AR / en_US) y Twitter Card con og-es.jpg y og-en.jpg | Los buscadores y las redes leen el HTML sin ejecutar JavaScript |
+| 19/11/2026 | sitemap.xml y robots.txt generados después del build (postbuild), sin lastmod | Usan el mismo dominio de site.json; la fecha del build no indica cambios reales |
+| 19/11/2026 | JSON-LD ProfilePage con una Person (mismo @id en /es y /en); sin email | Datos claros para buscadores y asistentes de IA; el email en datos estructurados atrae spam |
+| 19/11/2026 | Sin llms.txt | No es un estándar, Google no lo usa y el HTML prerenderizado con JSON-LD ya cubre lo mismo |
+| 19/11/2026 | Cotización de We Insure descrita como "guiada por pasos según el tipo de cobertura", sin cifra | El número de pasos cambia según la cobertura |
+| 19/11/2026 | We Insure: capturas de inicio, cotización y blog; sin la de reseñas | La de reseñas muestra nombres de clientes |
 
 ## Pendientes
 - Horas semanales disponibles.
-- Capturas de We Insure Downtown Miami (mientras tanto, placeholder).
+- Validar el JSON-LD con la herramienta de resultados enriquecidos de Google cuando esté publicado.
 - Contraste: verificar de nuevo si cambia la paleta. Última verificación: 19/11/2026,
   todos los textos de la página pasan 4.5:1 en claro (mínimo 5.18) y en oscuro (mínimo 7.29).
+- Lighthouse: correr de nuevo después de cambios grandes. Última medición: 19/11/2026,
+  sobre el build local con compresión, en móvil (Lighthouse 13.6). /es y /en:
+  Performance 99, Accessibility 100, Best Practices 100, SEO 100 (Agentic Browsing 100).
+  Mejoras opcionales detectadas: foto de perfil en WebP (unos 21 KB menos) e imágenes
+  responsivas para las capturas (unos 29 KB menos).

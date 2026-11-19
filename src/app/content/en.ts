@@ -2,6 +2,15 @@ import { SiteContent } from './content.model';
 
 /** Textos en inglés, traducidos de es.ts. Pendiente de revisión por Lucas. */
 export const EN: SiteContent = {
+  seo: {
+    title: 'Lucas Lopez Saaied | Junior Full Stack Developer',
+    description:
+      'Associate Degree in Programming (UTN), Mar del Plata, Argentina. I build web apps with ' +
+      'Java, JavaScript, Angular and MySQL, with live sites in use.',
+    ogLocale: 'en_US',
+    ogImage: '/images/og-en.jpg',
+    ogImageAlt: 'Lucas Lopez Saaied, Junior Full Stack Developer',
+  },
   header: {
     navLabel: 'Sections',
     switchLabel: 'ES',
@@ -110,7 +119,7 @@ export const EN: SiteContent = {
           'Developer. I rebuilt the site from scratch to replace the previous page, which had ' +
           "been built with a CRM's visual editor.",
         features: [
-          'Three-step quote by coverage type',
+          'Step-by-step quote flow by coverage type',
           'Coverage pages',
           'Site in English, Spanish and Italian',
           'Blog',
@@ -123,6 +132,26 @@ export const EN: SiteContent = {
           'scratch, without losing any content or features.',
         url: 'https://weinsure-miami.com/',
         status: 'Completed in August 2026.',
+        image: {
+          src: '/images/projects/we-insure/hero.webp',
+          width: 1200,
+          height: 380,
+          alt: 'Screenshot of the We Insure Downtown Miami home page',
+        },
+        gallery: [
+          {
+            src: '/images/projects/we-insure/quote.webp',
+            width: 1200,
+            height: 574,
+            alt: 'Step-by-step quote form by coverage type (shown: auto insurance).',
+          },
+          {
+            src: '/images/projects/we-insure/blog.webp',
+            width: 1200,
+            height: 514,
+            alt: 'Blog with articles on Florida insurance, organized by topic.',
+          },
+        ],
       },
     ],
   },

@@ -1,6 +1,7 @@
-import { Component, DOCUMENT, computed, effect, inject, input } from '@angular/core';
+import { Component, computed, effect, inject, input } from '@angular/core';
 import { CONTENT } from '../../content';
 import { Lang } from '../../core/language';
+import { SeoService } from '../../core/seo.service';
 import { Footer } from '../../layout/footer/footer';
 import { Header } from '../../layout/header/header';
 import { About } from '../../sections/about/about';
@@ -23,11 +24,9 @@ export class Home {
   protected readonly content = computed(() => CONTENT[this.lang()]);
 
   constructor() {
-    // DOCUMENT funciona también al prerenderizar, donde no existe "window".
-    const document = inject(DOCUMENT);
-    // Actualiza <html lang="..."> para lectores de pantalla y buscadores.
-    effect(() => {
-      document.documentElement.lang = this.lang();
-    });
+    const seo = inject(SeoService);
+    // Cada vez que cambia el idioma (y una vez al prerenderizar cada ruta), actualiza el <head>:
+    // <html lang>, título, descripción, canonical, hreflang, Open Graph y Twitter Card.
+    effect(() => seo.update(this.lang()));
   }
 }

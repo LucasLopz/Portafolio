@@ -3,6 +3,24 @@
   <head>
     <meta charset="utf-8" />
     <!--
+      theme-color: color de la barra del navegador en el celular, uno por esquema.
+      data-scheme dice a qué tema corresponde cada uno; el script de abajo y ThemeService
+      lo usan para dejar activo solo el del tema elegido con el botón.
+      Van antes del script para que ya existan cuando el script corre.
+    -->
+    <meta
+      name="theme-color"
+      content="#eef0f3"
+      media="(prefers-color-scheme: light)"
+      data-scheme="light"
+    />
+    <meta
+      name="theme-color"
+      content="#111318"
+      media="(prefers-color-scheme: dark)"
+      data-scheme="dark"
+    />
+    <!--
       Tema sin parpadeo. Este script corre antes de que el navegador dibuje la página:
       decide el tema y lo marca en <html data-theme="...">, y el CSS ya pinta con esos colores.
       Va escrito acá (y no en Angular) porque Angular arranca después y se vería el tema
@@ -16,7 +34,14 @@
           // Elección guardada por el usuario (puede fallar si el navegador bloquea el almacenamiento).
           theme = localStorage.getItem('theme');
         } catch (e) {}
-        if (theme !== 'light' && theme !== 'dark') {
+        if (theme === 'light' || theme === 'dark') {
+          // Hay elección guardada: solo queda activo el theme-color de ese tema.
+          var metas = document.querySelectorAll('meta[name="theme-color"]');
+          for (var i = 0; i < metas.length; i++) {
+            var scheme = metas[i].getAttribute('data-scheme');
+            metas[i].setAttribute('media', scheme === theme ? 'all' : 'not all');
+          }
+        } else {
           // Primera visita: respeta la preferencia del sistema.
           theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
         }
@@ -26,7 +51,15 @@
     <title>Portfolio</title>
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <!--
+      Íconos del sitio:
+      - favicon.ico: para navegadores viejos y lectores de feeds (sizes evita que Chrome lo prefiera).
+      - favicon.svg: el que usan los navegadores actuales; se ve nítido en cualquier tamaño.
+      - apple-touch-icon.png: el ícono al guardar el sitio en la pantalla de inicio del celular.
+    -->
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <!-- preload: pide la fuente apenas empieza a leer el HTML, sin esperar al CSS.
          crossorigin es obligatorio para fuentes, aunque sean del mismo sitio. -->
     <link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
